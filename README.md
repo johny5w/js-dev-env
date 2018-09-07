@@ -4,7 +4,7 @@ The goal is to create a standard dev environment for new js projects utalizing b
 
 ---
 A good dev environement should make include the following
-- [ ] package management
+- [X] package management *-using npm*
 - [ ] bundling
 - [ ] minification
 - [ ] sourcemaps
@@ -13,7 +13,7 @@ A good dev environement should make include the following
 - [ ] centralized HTTP
 - [ ] mock API framework
 - [ ] component libraries
-- [ ] development webserver
+- [X] development webserver *-using express*
 - [ ] linting
 - [ ] automated testing
 - [ ] continuous integration
