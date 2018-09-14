@@ -20,3 +20,6 @@ A good dev environement should make include the following
 - [ ] automated build
 - [ ] automated deployment
 - [ ] working example
+
+TODO:
+- [ ] update all packages after completing course, especially babel and webpack
