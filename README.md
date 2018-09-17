@@ -14,12 +14,14 @@ A good dev environement should make include the following
 - [ ] mock API framework
 - [ ] component libraries
 - [X] development webserver *-using express*
-- [ ] linting
-- [ ] automated testing
-- [ ] continuous integration
+- [X] linting
+- [X] automated testing
+- [X] continuous integration
 - [ ] automated build
 - [ ] automated deployment
 - [ ] working example
 
 TODO:
 - [ ] update all packages after completing course, especially babel and webpack
+- [ ] consider gulp instead of npm scripts
+- [ ] consider jasmine or jest instead of mocha
