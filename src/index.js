@@ -1,4 +1,4 @@
-import {getUsers} from './api/userApi';
+import {getUsers, deleteUser} from './api/userApi';
 
 import './index.css';
 
@@ -8,7 +8,7 @@ getUsers().then(result => {
 
     result.forEach(user => {
         usersBody+= `<tr>
-            <td><a href="#" dadta-id="${user.id}" class=deleteUser>Delete</a></td>
+            <td><a href="#" data-id="${user.id}" class=deleteUser>Delete</a></td>
             <td>${user.id}</td>
             <td>${user.firstName}</td>
             <td>${user.lastName}</td>
@@ -16,6 +16,20 @@ getUsers().then(result => {
         </tr>`
     });
 
-    console.log("result was ", result);
+
     document.getElementById('users').innerHTML = usersBody;
+
+    const deleteLinks = document.getElementsByClassName('deleteUser');
+
+    // array.from create a real array from a DOM collection
+    // getElementsByClassname only returns an "array like" object
+    Array.from (deleteLinks, link => {
+        link.onclick = function(event) {
+            const element = event.target;
+            event.preventDefault();
+            deleteUser(element.attributes["data-id"].value);
+            const row = element.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        };
+    });
 });
