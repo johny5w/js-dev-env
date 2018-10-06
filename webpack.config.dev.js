@@ -2,7 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 
-export default {
+module.exports = {
     debug: true,
     devtool: 'inline-source-map',
     noInfo: false,
@@ -17,10 +17,11 @@ export default {
     },
     plugins: [
         // Create HTML file that includes reference to bundled js
-        new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            inject: true
-        })
+        // new HtmlWebpackPlugin({
+        //     template: 'src/index.html',
+        //     inject: true
+        // })
+        new HtmlWebpackPlugin()
     ],
     module: {
         loaders: [
