@@ -2,6 +2,8 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import HardSourceWebpackPlugin from 'hard-source-webpack-plugin'; 
+//import CopyWebpackPlugin from 'copy-webpack-plugin';
+
 
 export default {
   resolve: {

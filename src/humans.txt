@@ -1,0 +1,25 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <name> -- <role> -- <twitter>
+    <example>
+    developer: John Wyss
+    twitter: @mytwitter
+    From: Kansas City, Missouri, USA
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Apache Server Configs, jQuery, Modernizr, Normalize.css
+
+# SITE
+    Last update: <date>
+    Language: English
+    Doctype:HTML5
+    IDE: VSCode

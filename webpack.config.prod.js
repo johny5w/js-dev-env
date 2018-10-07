@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
 
 const GLOBALS = {
@@ -22,6 +23,15 @@ export default {
     filename: '[name].[contenthash].js'
   },
   plugins: [
+
+    // Copy static files to dist
+    new CopyWebpackPlugin([
+      { from: 'src/.htaccess', to: '' },
+      { from: 'src/404.html', to: '' },
+      { from: 'src/humans.txt', to: '' },
+      { from: 'src/LICENSE.txt', to: '' },
+      { from: 'src/robots.txt', to: '' } 
+    ]),
     // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
     new webpack.DefinePlugin(GLOBALS),
 
