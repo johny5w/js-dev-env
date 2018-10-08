@@ -14,13 +14,21 @@ export default {
     extensions: ['*', '.js', '.jsx', '.json']
   },
   devtool: 'source-map',
-  entry: path.resolve(__dirname, 'src/index'),
+  entry: {
+      index: './src/index.js',
+      vendor: './src/vendor.js'
+  },
   target: 'web',
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: '[name].[contenthash].js'
+  },
+  optimization: {
+      splitChunks: {
+          chunks: 'all'
+      }
   },
   plugins: [
 
@@ -30,7 +38,7 @@ export default {
       { from: 'src/404.html', to: '' },
       { from: 'src/humans.txt', to: '' },
       { from: 'src/LICENSE.txt', to: '' },
-      { from: 'src/robots.txt', to: '' } 
+      { from: 'src/robots.txt', to: '' }
     ]),
     // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
     new webpack.DefinePlugin(GLOBALS),
