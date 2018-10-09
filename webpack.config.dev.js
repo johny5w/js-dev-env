@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
-import HardSourceWebpackPlugin from 'hard-source-webpack-plugin'; 
+import HardSourceWebpackPlugin from 'hard-source-webpack-plugin';
 //import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 
@@ -11,9 +11,6 @@ export default {
   },
   devtool: 'cheap-module-eval-source-map', // more info:https://webpack.js.org/guides/development/#using-source-maps and https://webpack.js.org/configuration/devtool/
   entry: [
-    // must be first entry to properly set public path
-    //'./src/webpack-public-path',
-    //'webpack-hot-middleware/client?reload=true',
     path.resolve(__dirname, 'src/index.js') // Defining path seems necessary for this to work consistently on Windows machines.
   ],
   target: 'web',
@@ -38,39 +35,22 @@ export default {
   ],
   module: {
     rules: [
+      // transpile js/jsx files
       {
         test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
+
+      // load fonts
       {
-        test: /\.eot(\?v=\d+.\d+.\d+)?$/,
-        use: ['file-loader']
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          use: [
+              'file-loader'
+          ]
       },
-      {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              mimetype: 'application/font-woff'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              mimetype: 'application/octet-stream'
-            }
-          }
-        ]
-      },
+
+      //
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         use: [
@@ -83,6 +63,8 @@ export default {
           }
         ]
       },
+
+      // minify images
       {
         test: /\.(jpe?g|png|gif|ico)$/i,
         use: [
@@ -94,6 +76,8 @@ export default {
           }
         ]
       },
+
+      // compile sass
       {
         test: /(\.css|\.scss|\.sass)$/,
         use: [
@@ -119,7 +103,23 @@ export default {
             }
           }
         ]
-      }
+      },
+
+      // load csv files
+      {
+        test: /\.(csv|tsv)$/,
+        use: [
+          'csv-loader'
+        ]
+      },
+
+      // load xml files
+      {
+        test: /\.xml$/,
+        use: [
+          'xml-loader'
+        ]
+      },
     ]
   }
 };

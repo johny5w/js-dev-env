@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 import path from 'path';
 
 const GLOBALS = {
@@ -31,6 +32,8 @@ export default {
       }
   },
   plugins: [
+    // Clean dist folder
+    new CleanWebpackPlugin(['dist']),
 
     // Copy static files to dist
     new CopyWebpackPlugin([
