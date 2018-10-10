@@ -5,3 +5,8 @@ body {
 table th {
   padding: 5px;
 }
+
+.robot {
+  background-image: url('img/robot-icon-vector-5065636.jpg');
+  background-size: contain;
+}
