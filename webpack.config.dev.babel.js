@@ -16,6 +16,9 @@ export default {
     },
     target: 'web',
     devtool: 'inline-source-map',
+    resolve: {
+        extensions: ['*', '.js', '.jsx', '.json']
+    },
 
     plugins: [
         // keep dev server from failing if errors

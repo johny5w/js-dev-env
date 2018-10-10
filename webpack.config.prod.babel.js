@@ -22,6 +22,9 @@ export default {
             chunks: 'all'
         }
     },
+    resolve: {
+        extensions: ['*', '.js', '.jsx', '.json']
+    },
 
     plugins: [
         // Clean dist folder
