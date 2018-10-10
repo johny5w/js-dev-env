@@ -9,4 +9,5 @@ table th {
 .robot {
   background-image: url('img/robot-icon-vector-5065636.jpg');
   background-size: contain;
+  font-family: url('fonts/Montserrat-Regular.otf');
 }
