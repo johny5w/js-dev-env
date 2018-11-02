@@ -8,7 +8,7 @@ const dist = path.resolve(__dirname, 'dist');
 
 export default {
     mode: 'development',
-    entry: [path.resolve(__dirname, 'src/index.js')],
+    entry: [path.resolve(__dirname, 'src/index')],
     output: {
         path: dist,
         //publicPath: '/',
@@ -17,7 +17,7 @@ export default {
     target: 'web',
     devtool: 'inline-source-map',
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.json']
+        extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx']
     },
 
     plugins: [
@@ -38,11 +38,10 @@ export default {
     module: {
         rules: [
             {
-                // transpile js/jsx files
-                test: /\.(js|jsx)?$/,
+                // transpile ts/tsx/js/jsx files
+                test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
-                use: ['babel-loader']
-
+                loader: ['babel-loader']
             },
             {
                 // compile sass/css

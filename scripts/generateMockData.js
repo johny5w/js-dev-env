@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 
 import jsf from 'json-schema-faker';
-import {schema} from './mochDataSchema';
+import {schema} from './mochDataSchema.js';
 import fs from 'fs';
 import chalk from 'chalk';
 

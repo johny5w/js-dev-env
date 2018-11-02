@@ -1,6 +1,7 @@
 import { getUsers, deleteUser } from './api/userApi';
 
 import './index.css';
+import './feature.ts';
 
 // populate table of users using api call
 getUsers().then(result => {
